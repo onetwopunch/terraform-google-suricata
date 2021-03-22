@@ -29,21 +29,10 @@ To test that packet mirroring and Suricata are working properly, we'll create a 
 
 First create a bucket, it doesn't matter the name, using `gsutil mb $BUCKET`.
 
-Then create a file called `my.rules` with the following content, and upload it to the bucket you just created:
+The upload the file [example/my.rules](./example/my.rules) into the bucket using:
 
-```
-####RULES#####
-#UDP ALERTS
-alert udp $HOME_NET any -> 8.8.8.8 53 (msg:"BAD UDP DNS REQUEST"; sid:99996; rev:1;)
-
-#HTTP ALERTS
-alert http any any -> $HOME_NET 80 (msg:"BAD HTTP PHP REQUEST"; http.uri; content:"index.php"; sid:99997; rev:1;)
-
-#ICMP ALERTS
-alert icmp any any -> $HOME_NET any (msg:"BAD ICMP"; sid:99998; rev:1;)
-
-#TCP ALERTS
-alert tcp $HOME_NET any -> any 6667 (msg:"BAD TCP 6667 REQUEST"; sid:99999; rev:1;)
+```bash
+gsutil cp example/my.rules gs://$BUCKET
 ```
 
 ### 2. Terraform
