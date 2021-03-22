@@ -1,0 +1,12 @@
+####RULES#####
+#UDP ALERTS
+alert udp $HOME_NET any -> 8.8.8.8 53 (msg:"BAD UDP DNS REQUEST"; sid:99996; rev:1;)
+
+#HTTP ALERTS
+alert http any any -> $HOME_NET 80 (msg:"BAD HTTP PHP REQUEST"; http.uri; content:"index.php"; sid:99997; rev:1;)
+
+#ICMP ALERTS
+alert icmp any any -> $HOME_NET any (msg:"BAD ICMP"; sid:99998; rev:1;)
+
+#TCP ALERTS
+alert tcp $HOME_NET any -> any 6667 (msg:"BAD TCP 6667 REQUEST"; sid:99999; rev:1;)
