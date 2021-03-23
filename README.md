@@ -8,7 +8,7 @@ See [example](./example) directory for  usage. This will setup a network, two su
 
 ```hcl
 module "suricata" {
-  source = "./terraform-google-suricata"
+  source  = "onetwopunch/suricata/google"
 
   project = var.project
   network = google_compute_network.ids.id
