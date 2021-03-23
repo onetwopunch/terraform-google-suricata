@@ -142,6 +142,7 @@ resource "google_project_iam_member" "ids" {
 }
 
 resource "google_storage_bucket_iam_member" "ids" {
+  count  = local.use_custom_rules ? 1 : 0
   bucket = local.custom_rule_bucket
   role   = "roles/storage.objectViewer"
   member = "serviceAccount:${google_service_account.ids.email}"
@@ -161,6 +162,7 @@ resource "google_compute_firewall" "ids" {
     metadata = "INCLUDE_ALL_METADATA"
   }
 }
+
 resource "google_compute_firewall" "ids_deny_ssh" {
   name     = "deny-ssh-to-suricata"
   network  = var.network
