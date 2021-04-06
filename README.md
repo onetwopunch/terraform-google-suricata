@@ -2,6 +2,10 @@
 
 This module sets up packet mirroring in a Google Cloud VPC and a collector instance behind an ILB, running Suricata IDS.
 
+## Architecture
+
+![](./arch.png)
+
 ## Usage
 
 See [example](./example) directory for  usage. This will setup a network, two subnets, packet mirroring and the Suricata instance, which collects packets from the other subnet.
