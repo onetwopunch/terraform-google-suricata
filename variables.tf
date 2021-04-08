@@ -57,7 +57,7 @@ variable "prefix" {
 variable "target_tags" {
   description = "Target tags that will be mirrored"
 
-  default = ["use-suricata"]
+  default = []
   type    = list(string)
 }
 
