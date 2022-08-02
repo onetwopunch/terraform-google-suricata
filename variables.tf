@@ -24,6 +24,12 @@ variable "zone" {
   default     = "us-central1-a"
 }
 
+variable "vm_source_image" {
+  description = "Source image for the Suricata VM"
+  type        = string
+  default     = "debian-cloud/debian-10"
+}
+
 variable "custom_rules_path" {
   description = "GCS bucket path for Suricata .rules file. i.e gs://my-bucket/my.rules"
   type        = string

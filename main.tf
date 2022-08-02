@@ -21,7 +21,7 @@ resource "google_compute_instance_template" "ids" {
   machine_type = "e2-medium"
 
   disk {
-    source_image = "debian-cloud/debian-9"
+    source_image = var.vm_source_image
     auto_delete  = true
     boot         = true
   }
